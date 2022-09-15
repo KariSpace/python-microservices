@@ -1,0 +1,10 @@
+Flask==2.1.0
+Flask-SQLAlchemy
+SQLAlchemy
+Flask-Migrate
+Flask-Script
+Flask-Cors
+requests
+mysqlclient
+pika
+psycopg2

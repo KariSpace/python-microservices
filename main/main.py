@@ -1,0 +1,41 @@
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import UniqueConstraint
+
+POSTGRES_USER='postgres'
+POSTGRES_PASSWORD='postgres'
+POSTGRES_HOST='localhost'
+POSTGRES_HOST=5432
+POSTGRES_DB='main'
+
+
+DATABASE_CONNECTION_URI = f'postgresql+psycopg2://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_HOST}/{POSTGRES_DB}'
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_CONNECTION_URI 
+
+
+db = SQLAlchemy(app)
+
+
+class Product(db.Model):
+    id = db.Column(db.Integer, primary_key = True, autoincrement=False)
+    title = db.Column(db.String(200))
+    image = db.Column(db.String(200))
+    
+    
+class ProductUser(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer)
+    product_id = db.Column(db.Integer)
+
+    UniqueConstraint('user_id', 'product_id', name='user_product_unique')
+
+
+
+@app.route('/')
+def index():
+    return 'Hello'
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=8001)
