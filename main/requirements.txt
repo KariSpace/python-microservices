@@ -2,6 +2,7 @@ Flask==2.1.0
 Flask-SQLAlchemy
 SQLAlchemy
 Flask-Migrate
+flask_migrate
 Flask-Script
 Flask-Cors
 requests
