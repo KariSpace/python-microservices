@@ -3,8 +3,11 @@
 Based on tutorial [Python Microservices Web App](https://youtu.be/0iB5IPoTDts)
 
 
-### Differences from tutorial:
+### Updates from tutorial:
 1. PostgreSQL instead of mySQL
+2. Created post user
+3. Fixed UniqueConstraint for ProductUser
+
 
 
 

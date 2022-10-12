@@ -29,5 +29,10 @@ urlpatterns = [
             'put': 'update',
             'delete': 'destroy'
         })),
-    path('user', UserAPIView.as_view())
+    
+    path('user', UserAPIView.as_view({
+            'get' : 'get',
+            'post': 'create'
+        })),
+    
 ]
